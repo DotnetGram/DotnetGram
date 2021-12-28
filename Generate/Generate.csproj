@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<!-- 
+	This file is part of DotnetGram Project (https://github.com/DotnetGram/DotnetGram).
+	Copyright (c) 2021 DotnetGram Authors.
+
+	This library is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, version 3.
+
+	This library is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this source code of library. 
+	If not, see <http://www.gnu.org/licenses/>.
+	-->
+	<!--===================================================-->
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFrameworks>net6.0;net5.0</TargetFrameworks>
+		<PublishSingleFile>true</PublishSingleFile>
+		<PublishTrimmed>true</PublishTrimmed>
+		<PublishReadyToRun>true</PublishReadyToRun>
+		<AssemblyName>Generate</AssemblyName>
+		<RootNamespace>Generate</RootNamespace>
+		<NeutralLanguage>en-US</NeutralLanguage>
+	</PropertyGroup>
+	<!--===================================================-->
+	
+	<!--===================================================-->
+	<PropertyGroup>
+		<!--
+			define the __LINUX__ and __WINDOWS__ constants in order to use it in the
+			code as: 
+			#if __LINUX__
+				....
+			#elif __WINDOWS__
+				...
+			#endif
+			===================================================================
+			please don't undefine this constant.
+		-->
+		<DefineConstants Condition="'$(OS)' == 'unix'">__LINUX__</DefineConstants>
+		<DefineConstants Condition="'$(OS)' == 'Windows_NT'">__WINDOWS__</DefineConstants>
+	</PropertyGroup>
+	<!--===================================================-->
+	<!--===================================================-->
+	<!--===================================================-->
+	<!--===================================================-->
+	<!--===================================================-->
+	<ItemGroup>
+		<!--======================-->
+		<!--======================-->
+		<!--======================-->
+	</ItemGroup>
+	<!--===================================================-->
+	<!--===================================================-->
+	<ItemGroup>
+		<!--Include the project folders here.-->
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+	</ItemGroup>
+	<!--===================================================-->
+</Project>
+
+<!--End of the ClientTest Project File.-->
+<!--2019 - 2021 (C) wotoTeam-->

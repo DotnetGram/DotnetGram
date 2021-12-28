@@ -1,0 +1,101 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<!-- 
+	This file is part of DotnetGram Project (https://github.com/DotnetGram/DotnetGram).
+	Copyright (c) 2021 DotnetGram Authors.
+
+	This library is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, version 3.
+
+	This library is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this source code of library. 
+	If not, see <http://www.gnu.org/licenses/>.
+	-->
+	<!--===================================================-->
+	<PropertyGroup>
+		<RuntimeIdentifier Condition="'$(OS)' == 'unix'">linux-x64</RuntimeIdentifier>
+		<RuntimeIdentifier Condition="'$(OS)' == 'Windows_NT'">win-x64</RuntimeIdentifier>
+		<AssemblyName>DotnetGram</AssemblyName>
+		<RootNamespace>DotnetGram</RootNamespace>
+		<description>A GUI library for windows and linux</description>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<TargetFrameworks>net6.0;net5.0</TargetFrameworks>
+		<PackageId>DotnetGram</PackageId>
+		<Version>1.0.42</Version>
+		<Authors>DotnetGram Authors</Authors>
+    	<PackageProjectUrl>https://github.com/DotnetGram/DotnetGram</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/DotnetGram/DotnetGram</RepositoryUrl>
+		<!--
+		<PackageIconUrl>https://github.com/DotnetGram/DotnetGram/raw/master/DotnetGram/Icon.ico</PackageIconUrl>
+		<PackageIcon>Icon.png</PackageIcon>
+		-->
+		<RepositoryType>git</RepositoryType>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<license>LICENSE</license>
+	</PropertyGroup>
+	<!--===================================================-->
+	<PropertyGroup>
+		<NoWarn>1591;1701;1702;1705</NoWarn>
+	</PropertyGroup>
+	<!--===================================================-->
+	<PropertyGroup>
+		<!--
+			define the __LINUX__ and __WINDOWS__ constants in order to use it in the
+			code as: 
+			#if __LINUX__
+				....
+			#elif __WINDOWS__
+				...
+			#endif
+			===================================================================
+			please don't undefine this constant.
+		-->
+		<DefineConstants Condition="'$(OS)' == 'unix'">__LINUX__</DefineConstants>
+		<DefineConstants Condition="'$(OS)' == 'Windows_NT'">__WINDOWS__</DefineConstants>
+	</PropertyGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<None Include="..\LICENSE" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<!--
+			<EmbeddedResource Include="Icon.ico" />
+			<EmbeddedResource Include="Icon.bmp" />
+		-->
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+	<!--
+		
+		<PackageReference Include="SharpDX" Version="4.2.0" Condition="'$(OS)' == 'Windows_NT'" />
+		<PackageReference Include="SharpDX.Direct3D9" Version="4.2.0" Condition="'$(OS)' == 'Windows_NT'" />
+		<PackageReference Include="SharpDX.DXGI" Version="4.2.0" Condition="'$(OS)' == 'Windows_NT'" />
+		<PackageReference Include="SharpDX.Mathematics" Version="4.2.0" Condition="'$(OS)' == 'Windows_NT'" />
+		<PackageReference Include="SharpDX.MediaFoundation" Version="4.2.0" Condition="'$(OS)' == 'Windows_NT'" />
+		<PackageReference Include="SharpDX.XAudio2" Version="4.2.0" Condition="'$(OS)' == 'Windows_NT'" />
+		<PackageReference Include="TextCopy" Version="4.3.1" />
+		<PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+		<PackageReference Include="FontStashSharp.MonoGame" Version="0.9.5" />
+		<PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+	-->
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup Condition="'$(OS)' != 'Windows_NT'">
+		<None Remove="Controls\Music\MusicManager.resx"/>
+	</ItemGroup>
+	<!--===================================================-->
+	<!--===================================================-->
+</Project>
+
+<!--End of the DotnetGram Project File.-->
+<!--2021 - 2022 (C) DotnetGram Authors-->
+
